@@ -14,4 +14,4 @@ SMTP_PASS = os.getenv("SMTP_PASS")
 SMTP_FROM = os.getenv("SMTP_FROM", SMTP_USER or "noreply@p123.local")
 DEV_SHOW_PASSWORD = os.getenv("DEV_SHOW_PASSWORD", "1") == "1"  # only used when SMTP is not configured
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
-GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.5-flash-lite")
+GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-3.5-flash-lite")
