@@ -1,0 +1,12 @@
+fastapi
+uvicorn[standard]
+pandas>=2.2.3,<3
+numpy
+openpyxl
+pydantic[email]
+sqlalchemy
+PyJWT
+scikit-learn
+python-multipart
+httpx
+pytest

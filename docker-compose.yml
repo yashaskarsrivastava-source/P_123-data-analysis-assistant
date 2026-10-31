@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:16
+    environment: {POSTGRES_USER: p123, POSTGRES_PASSWORD: p123, POSTGRES_DB: p123}
+    volumes: [pgdata:/var/lib/postgresql/data]
+    healthcheck: {test: ["CMD-SHELL", "pg_isready -U p123"], interval: 5s, retries: 10}
+  app:
+    build: .
+    ports: ["8000:8000"]
+    env_file: [{path: .env, required: false}]
+    environment:
+      DATABASE_URL: postgresql+psycopg2://p123:p123@db:5432/p123
+      UPLOAD_DIR: /data/uploads
+    volumes: [uploads:/data/uploads]
+    depends_on: {db: {condition: service_healthy}}
+volumes: {pgdata: {}, uploads: {}}

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>P_123 · Data Analysis Assistant</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+<section id="auth">
+  <div class="auth-box">
+    <h1>Data Analysis Assistant</h1>
+    <p class="muted" data-i18n="tagline"></p>
+    <div class="tabs"><button id="tabLogin" class="on" data-i18n="login"></button><button id="tabSignup" data-i18n="signup"></button></div>
+    <form id="formLogin">
+      <input id="lEmail" type="email" required placeholder="Email">
+      <input id="lPass" type="password" required data-i18n-ph="password">
+      <button class="primary" data-i18n="login"></button>
+      <a href="#" id="forgot" data-i18n="forgot"></a>
+    </form>
+    <form id="formSignup" class="hidden">
+      <input id="sName" required data-i18n-ph="name">
+      <input id="sEmail" type="email" required placeholder="Email">
+      <button class="primary" data-i18n="getPw"></button>
+    </form>
+    <p id="authMsg" class="msg"></p>
+  </div>
+</section>
+
+<div id="app" class="hidden">
+  <aside id="sidebar">
+    <button id="newChat" class="newchat">＋ <span data-i18n="newChat"></span></button>
+    <div class="sec">
+      <div class="sec-title" data-i18n="datasets"></div>
+      <label id="drop" class="drop"><input type="file" id="file" accept=".csv,.xlsx" hidden><span data-i18n="drop"></span></label>
+      <div id="samples"></div>
+      <div id="dsList"></div>
+    </div>
+    <div class="sec grow"><div class="sec-title" data-i18n="history"></div><div id="convList"></div></div>
+    <div id="userCard"><div class="avatar" id="avatar"></div><div class="uinfo"><b id="uName"></b><small id="uEmail"></small></div><button id="logout" class="icon" title="Logout">⎋</button></div>
+  </aside>
+  <main>
+    <header>
+      <button id="menu" class="icon">☰</button><span id="curDs" class="muted"></span><div class="sp"></div>
+      <select id="lang"><option value="en">English</option><option value="hi">हिन्दी</option><option value="es">Español</option><option value="fr">Français</option></select>
+      <button id="themeBtn" class="icon" title="Theme">◐</button>
+    </header>
+    <div id="chat"></div>
+    <div id="composer"><textarea id="q" rows="1" data-i18n-ph="placeholder"></textarea><button id="send" class="primary">➤</button></div>
+  </main>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
